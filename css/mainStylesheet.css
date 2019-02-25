@@ -275,7 +275,7 @@ nav ul li ul li:hover a{
 /***** ^End Reference Section*****/
 /***** Contact / About Section *****/
 #contact-about-section{
-  height: 1200px;
+  height: 1000px;
   width: 100%;
 }
 /***** ^End Contact / About Section *****/
@@ -286,8 +286,8 @@ nav ul li ul li:hover a{
   align-content: center;
   text-align: center;
   align-items: center;
-  height: 1200px;
   width: 100%;
+  margin-bottom: 100px;
 }
 #notes-section h1{
   font-size: 4em;
@@ -304,21 +304,49 @@ nav ul li ul li:hover a{
   flex-direction: row;
   width: 100%;
   height: 350px;
-  margin-bottom:40px;
-  padding-bottom: 5%;
+  margin-bottom:150px;
 }
 .note-image{
   width: 50%;
   height:350px;
 }
 .note-description{
+  text-align: left;
   width: 50%;
   height: 350px;
+}
+.note-description h2{
+  font-family: 'Circular Std Book';
+  font-size: 1.2em;
+  margin-top: 8%;
+  margin-left: 10%;
+}
+.note-description p{
+  font-size: 1.8em;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  line-height: 1.4;
+
 }
 .blue-note{
   background-color: #2134ff;
   margin-top: 5%;
   margin-left: -6%;
+}
+.note-description h2::after{
+  content: '';
+  display: flex;
+  margin-top: 8px;
+  height: 1px;
+  align-self: center;
+  width: 90%;
+}
+.blue-note h2::after{
+  background-color: #fff;
+}
+.white-note h2::after{
+  background-color: #2134ff;
 }
 .white-note{
   background-color: #fff;
@@ -331,7 +359,36 @@ nav ul li ul li:hover a{
 #note-december{
   height: 100%;
   background: url(../resources/images/notatDesember.png)no-repeat center center;
+  margin-top: 5%;
+  margin-left: -6%;
+  z-index: -1;
 }
+#more-notes{
+  display: flex;
+  cursor: pointer;
+  padding: 13px;
+  font-family: 'Circular Std Medium';
+  font-size: 1.1em;
+  border-radius: 50px;
+  width: 250px;
+  background-color:rgba(33,52,255,.5); /**#2134ff;**/
+  color: #fff;
+  border: 0;
+  align-self: flex-start;
+  margin-left: 20%;
+  transition: background-color .3s ease;
+}
+#more-notes span{
+  margin-left: 10px;
+  align-self: center;
+}
+more-notes img{
+  margin-left: 5px;
+}
+#more-notes:hover{
+  background-color:rgba(33,52,255,1);
+}
+
 
 /***** ^End Notes Section *****/
 
