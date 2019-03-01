@@ -21,12 +21,15 @@ src: local('Circular Std Bold'), url('../resources/fonts/CircularStd-Bold.woff')
 }
 /*****^End Font Import*****/
 /***** Reset default values ****/
+html.clicking .dot:focus {
+   outline: none;
+}
 body{
   margin: 0;
   padding: 0;
   width: 100%;
   height: auto;
-  font-family: 'Circular Std Medium', Arial;
+  font-family: 'Circular Std Medium', 'Montserrat', Arial;
   background: rgba(9,18,23,1);
   color: #fff;
 }
@@ -84,12 +87,12 @@ nav ul li:hover a{
   background-color: white;
   border-radius: 50px;
 }
-
-nav ul li:hover ul{
+/*Add :focus-within to display submenu when in focus i.e higlighted with tab */
+nav ul li:hover ul, nav ul li:focus-within ul{
   visibility: visible;
 }
 
-nav ul li:hover ul li a{
+nav ul li:hover ul li a, nav ul li:focus-within ul a{
   color: rgba(255, 255, 255, 1);
   background-color:transparent;
 }
@@ -126,6 +129,47 @@ nav ul li ul li:hover a{
   margin-right: 20px;
   align-self: center;
 }
+.hidden-menu{
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(50,50,50,.5), rgba(80,80,80,.5), rgba(50, 50, 50, .5));
+  display: flex;
+  height: 8em;
+  position: fixed;
+  justify-content: space-between;
+  z-index: 1000;
+}
+.show{
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.hidden-menu div{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+}
+.hidden-menu div h2{
+  padding: 0;
+  margin: 0;
+  line-height: 5em;
+  font-size: 1.2em;
+  font-family: 'Circular Std Medium';
+  color: rgba(33, 52, 255, 1);
+}
+.hidden-menu div img{
+  width: 2em;
+  height: 2em;
+  padding: 0em;
+  margin-right: 1em;
+  align-self: center;
+}
+#blue-logo{
+  width: 45px;
+  height: 80px;
+  margin-right: 5em;
+  align-self: center;
+}
 /***** ^End Navigation Header *****/
 /***** Header Content Section / Welcome Screen *****/
 #header-section{
@@ -160,11 +204,17 @@ nav ul li ul li:hover a{
   font-size: 3.5em;
 }
 
+/*Reset button in dot-container*/
+button{
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
 .dot {
   cursor: pointer;
   height: 22px;
   width: 22px;
-  margin: 0 8px;
+  margin: 0px 8px;
   background-color: rgba(235, 235, 235, .3);
   border-radius: 50%;
   display: inline-block;
@@ -204,6 +254,7 @@ nav ul li ul li:hover a{
 }
 .arrow-element:hover{
   background-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
 }
 .arrow-element svg{
   fill: rgb(255, 255, 255);
@@ -223,19 +274,84 @@ nav ul li ul li:hover a{
 .video-element{
   width: 400px;
   height: 300px;
-  background-color: blue;
+  transition: margin-top .4s ease-in-out;
 }
 .video-frame{
   background: rgba(255,255,255,.5);
   width: 100%;
   height: 250px;
+  border-radius: 8px;
+  box-shadow: -6px 1px 70px 0px rgba(255,255,255,0.0);
+  transition: box-shadow .3s ease-in-out;
 }
+.corner-overlay{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 250px;
+}
+.corners{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1em;
+}
+.corners img{
+  visibility: hidden;
+}
+.play-button{
+  align-self: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 2em 0;
+  background-color: rgba(32, 52, 255, 0.7);
+  transition: background-color .3s ease-in;
+  align-content: space-around;
+  justify-content: center;
+}
+.play-button img{
+  transform: scale(1.2);
+  margin-top: 33%;
+  margin-left: 10%;
+}
+/** Hovering Video effects**/
+.video-frame:hover .corners img{
+  visibility: visible;
+}
+.video-frame:hover .play-button{
+  background-color: rgba(32, 52, 255, 1);
+}
+.video-frame:hover{
+  box-shadow: -6px 1px 70px 0px rgba(255,255,255,0.2);
+}
+.video-element:hover{
+  margin-top: -.5em;
+  cursor: pointer;
+}
+
+
+
+/** ^End Hovering Video effects **/
 .video-element h2{
   font-size: 18px;
   font-family: 'Circular Std Book';
   color: #fff;
 }
+#laastad-thumbnail{
+  background: url(../resources/images/laastad.jpg)no-repeat center center;
+}
+#garasjeport-thumbnail{
+  background: url(../resources/images/garasjeport.jpg)no-repeat center center;
+}
+#byggmakker-thumbnail{
+  background: url(../resources/images/byggmakker.jpg)no-repeat center center;
+}
+#smistad-thumbnail{
+  background: url(../resources/images/smistad.jpg)no-repeat center center;
+}
 /***** ^End Video Section*****/
+
 /***** Reference Section*****/
 #reference-section{
   width: 100%;
@@ -243,7 +359,15 @@ nav ul li ul li:hover a{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 150px;
+  margin-top: 12em;
+}
+
+#reference-section::after{
+  margin-top: 10em;
+  margin-bottom: 6em;
+  content: '';
+  width: 100%;
+  box-shadow: 0px -2px 80px 100px rgba(9,18,23,1);
 }
 #quote-container{
   display: flex;
@@ -263,6 +387,7 @@ nav ul li ul li:hover a{
 .quoted{
   font-size: 1.1em;
 }
+/*White line before quoted name*/
 .quoted::before{
   content: "";
   float: left;
@@ -272,13 +397,73 @@ nav ul li ul li:hover a{
   margin-top: 10px;
   background-color: #fff;
 }
+
 /***** ^End Reference Section*****/
 /***** Contact / About Section *****/
 #contact-about-section{
-  height: 1000px;
+  display: flex;
   width: 100%;
+  margin-bottom: 10em;
+  justify-content: space-around;
+}
+#flex-wrapper{
+
+}
+#contact-wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-element{
+  margin-bottom: 4em;
+  padding: 0;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+}
+
+.contact-information{
+  margin-top: -5em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  transition: margin-top .6 ease-in-out
+
+}
+.contact-information h2{
+  font-size: 1.8em;
+  margin: 0;
+}
+.contact-information h3{
+  font-size: 1.2em;
+  margin: 5px;
+}
+.contact-information a{
+  text-decoration: underline;
+  color: #fff;
+  font-size: 1.1em;
+  margin-top: 25px;
+}
+.contact-information span{
+  font-size: 1.1em;
+  margin-top: 5px;
+}
+.picture-container img{
+  opacity: 0.4;
+
+  transition: opacity .6s ease-in-out;
+  height: 85vh;
+  width: auto;
+
+}
+.contact-element:hover img{
+  opacity: 1;
 }
 /***** ^End Contact / About Section *****/
+
 /***** Notes Section *****/
 #notes-section{
   display: flex;
@@ -289,16 +474,19 @@ nav ul li ul li:hover a{
   width: 100%;
   margin-bottom: 100px;
 }
+
 #notes-section h1{
   font-size: 4em;
   font-family: 'Circular Std Book';
   margin-bottom: 100px;
 }
+
 #note-container{
   display: flex;
   flex-direction: column;
   width: 60%;
 }
+
 .note-element{
   display: flex;
   flex-direction: row;
@@ -306,29 +494,33 @@ nav ul li ul li:hover a{
   height: 350px;
   margin-bottom:150px;
 }
+
 .note-image{
   width: 50%;
   height:350px;
 }
+
 .note-description{
   text-align: left;
   width: 50%;
   height: 350px;
 }
+
 .note-description h2{
   font-family: 'Circular Std Book';
   font-size: 1.2em;
   margin-top: 8%;
   margin-left: 10%;
 }
+
 .note-description p{
   font-size: 1.8em;
   margin-top: 20px;
   margin-left: 10%;
   margin-right: 10%;
   line-height: 1.4;
-
 }
+
 .blue-note{
   background-color: #2134ff;
   margin-top: 5%;

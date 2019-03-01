@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vestbris</title>
     <!-- Font import-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <!--CSS files-->
     <link rel="stylesheet" href="./css/mainStylesheet.css">
     <!--JavaScript Files -->
@@ -42,6 +42,13 @@
         </div>
         <!-- **** ^End Logo and name**** -->
       </nav>
+      <nav id="hidden" class="hidden-menu">
+        <div class="">
+          <img src=".\resources\svg\menu.svg" alt="meny knapp">
+          <h2>Meny</h2>
+        </div>
+        <img id="blue-logo"src=".\resources\svg\vestbris-logo2.svg" alt="Vestbris logo">
+      </nav>
 
     </header>
     <!-- ***** ^End Header / Top navigation ***** -->
@@ -56,8 +63,8 @@
               <p>Dokumentasjon. Reklame. <br> Virkelighet. Fiksjon. Vi sørger for <br>at dine levende bilder setter spor. </p>
             </div>
             <div id="dot-container">
-              <span class="dot active" onclick="changeBackground(1)"></span>
-              <span class="dot" onclick="changeBackground(2)"></span>
+              <button class="dot active" onclick="changeBackground(1)"></button>
+              <button class="dot" onclick="changeBackground(2)"></button>
             </div>
           </div>
         </div>
@@ -69,40 +76,108 @@
         <!-- Arrow Container -->
         <div id="arrow-container">
           <div id="arrow-wrapper">
-            <div class="arrow-element">
+            <button class="arrow-element">
               <!-- Arrow left-->
               <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" preserveAspectRatio="none" viewBox="0 0 24 24" width="62" height="62"><g><path xmlns:default="http://www.w3.org/2000/svg" d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" vector-effect="non-scaling-stroke"/></g></svg>
-            </div>
-            <div class="arrow-element">
+            </button>
+            <button class="arrow-element">
               <!-- Arrow right-->
               <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" preserveAspectRatio="none" viewBox="0 0 24 24" width="62" height="62"><g><path xmlns:default="http://www.w3.org/2000/svg" d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" vector-effect="non-scaling-stroke"/></g></svg>
-            </div>
+            </button>
           </div>
         </div>
         <!--^End Arrow Container -->
 
         <!-- Video Container -->
         <div id="video-container">
-          <div class="video-element">
-            <div class="video-frame">
+          <!-- Video Element-->
+          <button class="video-element" aria-label="Spill av video: Laastad P1800ES">
+            <div class="video-frame" id="laastad-thumbnail">
+              <div class="corner-container">
+                <div class="corner-overlay">
+                  <div class="corners">
+                    <img src="./resources/svg/corner1.svg">
+                    <img src="./resources/svg/corner2.svg">
+                  </div>
+                  <div class="play-button">
+                    <img src="./resources/svg/Play.svg" alt="">
+                  </div>
+                  <div class="corners">
+                    <img src="./resources/svg/corner3.svg">
+                    <img src="./resources/svg/corner4.svg">
+                  </div>
+                </div>
+              </div>
             </div>
             <h2>Laastad P1800ES</h2>
-          </div>
-          <div class="video-element">
-            <div class="video-frame">
+          </button>
+          <!-- Video Element-->
+          <button class="video-element" aria-label="Spill av video: Salhus Garasjeporter - Symfoni">
+            <div class="video-frame" id="garasjeport-thumbnail">
+              <div class="corner-container">
+                <div class="corner-overlay">
+                  <div class="corners">
+                    <img src="./resources/svg/corner1.svg">
+                    <img src="./resources/svg/corner2.svg">
+                  </div>
+                  <div class="play-button">
+                    <img src="./resources/svg/Play.svg" alt="">
+                  </div>
+                  <div class="corners">
+                    <img src="./resources/svg/corner3.svg">
+                    <img src="./resources/svg/corner4.svg">
+                  </div>
+                </div>
+              </div>
             </div>
             <h2>Salhus Garasjeporter - Symfoni</h2>
-          </div>
-          <div class="video-element">
-            <div class="video-frame">
+          </button>
+          <!-- Video Element-->
+          <button class="video-element" aria-label="Spill av video: Jeg er en Byggmakker">
+            <div class="video-frame" id="byggmakker-thumbnail">
+              <div class="corner-container">
+                <div class="corner-overlay">
+                  <div class="corners">
+                    <!-- Left corner -->
+                    <img src="./resources/svg/corner1.svg">
+                    <!-- Right corner -->
+                    <img src="./resources/svg/corner2.svg">
+                  </div>
+                  <div class="play-button">
+                    <img src="./resources/svg/Play.svg" alt="">
+                  </div>
+                  <div class="corners">
+                    <!-- Bottom Left corner -->
+                    <img src="./resources/svg/corner3.svg">
+                    <!-- Bottom right corner -->
+                    <img src="./resources/svg/corner4.svg">
+                  </div>
+                </div>
+              </div>
             </div>
             <h2>Byggmakker - Jeg er en Byggmakker</h2>
-          </div>
-          <div class="video-element">
-            <div class="video-frame">
+          </button>
+          <!-- Video Element-->
+          <button class="video-element" aria-label="Spill av video: Smistad - Drømmebadet">
+            <div class="video-frame" id="smistad-thumbnail">
+              <div class="corner-container">
+                <div class="corner-overlay">
+                  <div class="corners">
+                    <img src="./resources/svg/corner1.svg">
+                    <img src="./resources/svg/corner2.svg">
+                  </div>
+                  <div class="play-button">
+                    <img src="./resources/svg/Play.svg" alt="">
+                  </div>
+                  <div class="corners">
+                    <img src="./resources/svg/corner3.svg">
+                    <img src="./resources/svg/corner4.svg">
+                  </div>
+                </div>
+              </div>
             </div>
             <h2>Smistad - Drømmebadet</h2>
-          </div>
+          </button>
         </div>
         <!-- ^End Video Container -->
       </section>
@@ -119,7 +194,64 @@
 
       <!--**** Contact / About Section****-->
       <section id="contact-about-section">
+        <!--*** Contact Wrapper - for all contact information + pictures ***-->
+        <div id="contact-flex">
+          <div id="contact-wrapper">
 
+            <div class="contact-element">
+              <div class="picture-container">
+                <!-- Opacity: 0.2 by default-->
+                <img src="./resources/images/simon.jpg" alt="Simon Olsen">
+              </div>
+              <div class="contact-information">
+                <h2>Simon Olsen</h2>
+                <h3>Produsent</h3>
+                <a href="mailto:joe@example.com?subject=feedback">simon@vestbris.no</a>
+                <span>+47 928 80 079</span>
+              </div>
+            </div>
+
+            <div class="contact-element">
+              <div class="picture-container">
+                <!-- Opacity: 0.2 by default-->
+                <img src="./resources/images/jorunn.jpg" alt="Jorunn B. Lilleland">
+              </div>
+              <div class="contact-information">
+                <h2>Jorunn B. Lilleland</h2>
+                <h3>Fotograf og dronepilot R03</h3>
+                <a href="mailto:joe@example.com?subject=feedback">jorunn@vestbris.no</a>
+                <span>+47 924 88 587</span>
+              </div>
+            </div>
+
+            <div class="contact-element">
+              <div class="picture-container">
+                <!-- Opacity: 0.2 by default-->
+                <img src="./resources/images/yngvar.jpg" alt="Yngvar R. Johansen">
+              </div>
+              <div class="contact-information">
+                <h2>Yngvar R. Johansen</h2>
+                <h3>Daglig leder</h3>
+                <a href="mailto:joe@example.com?subject=feedback">yngvar@vestbris.no</a>
+                <span>+47 404 03 658</span>
+              </div>
+            </div>
+
+            <div class="contact-element">
+              <div class="picture-container">
+                <!-- Opacity: 0.2 by default-->
+                <img src="./resources/images/kjetil.jpg" alt="Kjetil Waage">
+              </div>
+              <div class="contact-information">
+                <h2>Kjetil Waage</h2>
+                <h3>Fotograf og droneansvarlig R03</h3>
+                <a href="mailto:joe@example.com?subject=feedback">kjetil@vestbris.no</a>
+                <span>+47 994 47 797</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End flex-wrapper-->
+        <!--*** ^End Contact Wrapper ***-->
       </section>
       <!--**** ^End Contact / About Section****-->
 
@@ -130,10 +262,10 @@
         <div id="note-container">
           <div class="note-element">
             <div class="note-image" id="note-january">
-
+              <!-- Background image notatJanuar.png -->
             </div>
             <div class="note-description blue-note">
-              <h2>Januar 2018</h2>
+              <h2>Januar 2019</h2>
               <p>Vi er på plass i Oslo for fjerde gang for å få faglig input og siste nytt innen drone&shy;teknologi. Takk til UAS Norway for to lære&shy;rike dager, vi ser frem til fort&shy;settelsen!</p>
             </div>
           </div>
@@ -143,14 +275,14 @@
               <p>Vi er sammen med dyktige Helene Skogland godt i gang med ny film for banktjenester. Lansering før jul. Følg med.</p>
             </div>
             <div class="note-image" id="note-december">
-
+              <!-- Background image notatDesember.png -->
             </div>
           </div>
         </div>
         <!--*** ^End Note Container ***-->
 
         <!-- See More Notes Button-->
-        <button type="button" name="moreNotes" id="more-notes">
+        <button type="button" name="moreNotes" id="more-notes" onclick="#" aria-label="Se flere notater">
           <img src=".\resources\svg\eye.svg" alt="Se">
           <span>Flere Notater</span>
         </button>
