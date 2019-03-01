@@ -1,21 +1,3 @@
-// Stick Menu
-
-  window.onscroll = function() {stickMenu()};
-
-  var target = document.getElementById("contact-flex");
-  console.log(target);
-  var show = target.offsetTop;
-  var menu = document.getElementById("hidden")
-
-  function stickMenu() {
-    if (window.pageYOffset >= target) {
-      menu.classList.add("show")
-    } else {
-      menu.classList.remove("show");
-    }
-  }
-
-
 
 
 function changeBackground(pictureNumber) {
