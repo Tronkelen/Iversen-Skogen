@@ -9,14 +9,17 @@
     <!--CSS files-->
     <link rel="stylesheet" href="./css/mainStylesheet.css">
     <!--JavaScript Files -->
-    <script type="text/javascript" src="./js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><!-- jQuery import -->
     <!--Icon-->
+    <link rel="icon" href="./resources/svg/vestbris-logo2.ico">
   </head>
   <body>
+    <script type="text/javascript" src="./js/script.js"></script>
     <!-- ***** Header / Top navigation ***** -->
     <header id="welcome-header">
       <!-- **** Top navigation **** -->
       <nav>
+        <img src=".\resources\svg\menu.svg" alt="meny knapp" id="collapse-menu">
         <ul>
           <li><a href="#">Tjenester</a>
             <ul>
@@ -43,8 +46,8 @@
         <!-- **** ^End Logo and name**** -->
       </nav>
       <nav id="hidden" class="hidden-menu">
-        <div class="">
-          <img src=".\resources\svg\menu.svg" alt="meny knapp">
+        <div id="menu-container">
+          <img src=".\resources\svg\menu.svg" alt="meny knapp" id="blue-menu">
           <h2>Meny</h2>
         </div>
         <img id="blue-logo"src=".\resources\svg\vestbris-logo2.svg" alt="Vestbris logo">
@@ -55,6 +58,8 @@
 
     <!-- ***** Main ***** -->
     <main>
+
+
       <!-- **** Front Page Header **** -->
       <section id="header-section">
         <div class="image-container">
@@ -88,10 +93,10 @@
         </div>
         <!--^End Arrow Container -->
 
-        <!-- Video Container -->
+        <!-- *** Video Container *** -->
         <div id="video-container">
           <!-- Video Element-->
-          <button class="video-element" aria-label="Spill av video: Laastad P1800ES">
+          <button class="video-element"  onclick="playVideo(0)" aria-label="Spill av video: Laastad P1800ES">
             <div class="video-frame" id="laastad-thumbnail">
               <div class="corner-container">
                 <div class="corner-overlay">
@@ -112,7 +117,7 @@
             <h2>Laastad P1800ES</h2>
           </button>
           <!-- Video Element-->
-          <button class="video-element" aria-label="Spill av video: Salhus Garasjeporter - Symfoni">
+          <button class="video-element" onclick="playVideo(1)" aria-label="Spill av video: Salhus Garasjeporter - Symfoni" id="salhus-play">
             <div class="video-frame" id="garasjeport-thumbnail">
               <div class="corner-container">
                 <div class="corner-overlay">
@@ -121,7 +126,7 @@
                     <img src="./resources/svg/corner2.svg">
                   </div>
                   <div class="play-button">
-                    <img src="./resources/svg/Play.svg" alt="">
+                    <img src="./resources/svg/Play.svg">
                   </div>
                   <div class="corners">
                     <img src="./resources/svg/corner3.svg">
@@ -133,7 +138,7 @@
             <h2>Salhus Garasjeporter - Symfoni</h2>
           </button>
           <!-- Video Element-->
-          <button class="video-element" aria-label="Spill av video: Jeg er en Byggmakker">
+          <button class="video-element" onclick="playVideo(2)" aria-label="Spill av video: Jeg er en Byggmakker" id="byggmakker-play">
             <div class="video-frame" id="byggmakker-thumbnail">
               <div class="corner-container">
                 <div class="corner-overlay">
@@ -158,7 +163,7 @@
             <h2>Byggmakker - Jeg er en Byggmakker</h2>
           </button>
           <!-- Video Element-->
-          <button class="video-element" aria-label="Spill av video: Smistad - Drømmebadet">
+          <button class="video-element" onclick="playVideo(3)" aria-label="Spill av video: Smistad - Drømmebadet" id="smistad-play">
             <div class="video-frame" id="smistad-thumbnail">
               <div class="corner-container">
                 <div class="corner-overlay">
@@ -179,7 +184,32 @@
             <h2>Smistad - Drømmebadet</h2>
           </button>
         </div>
-        <!-- ^End Video Container -->
+        <!-- *** ^End Video Container *** -->
+
+        <!-- *** Video Modal*** -->
+        <div id="video-modal" class="modal">
+          <button id="close-video"class="close-button">&times;</button>
+          <div id="video-playlist" class="modal-content">
+            <!-- Video: -->
+            <div id="laastad-video" class="video-display">
+              <iframe src="https://www.youtube.com/embed/Goyq1gYamH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!-- Video: -->
+            <div id="garasjeport-video" class="video-display">
+              <iframe src="https://www.youtube.com/embed/5GBrAAjuli0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!-- Video: -->
+            <div class="video-display">
+              <iframe src="https://player.vimeo.com/video/219664571" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+            <!-- Video: -->
+            <div class="video-display">
+              <iframe src="https://player.vimeo.com/video/193367136" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <!-- *** ^End Video Modal *** -->
+
       </section>
       <!--**** ^End Video Section**** -->
 
@@ -200,8 +230,11 @@
 
             <div class="contact-element">
               <div class="picture-container">
-                <!-- Opacity: 0.2 by default-->
+                <!-- Opacity 0.6 by default-->
                 <img src="./resources/images/simon.jpg" alt="Simon Olsen">
+                <div class="light-filter">
+                  <!-- spotlight filter -->
+                </div>
               </div>
               <div class="contact-information">
                 <h2>Simon Olsen</h2>
@@ -215,6 +248,9 @@
               <div class="picture-container">
                 <!-- Opacity: 0.2 by default-->
                 <img src="./resources/images/jorunn.jpg" alt="Jorunn B. Lilleland">
+                <div class="light-filter">
+                  <!-- spotlight filter -->
+                </div>
               </div>
               <div class="contact-information">
                 <h2>Jorunn B. Lilleland</h2>
@@ -228,6 +264,9 @@
               <div class="picture-container">
                 <!-- Opacity: 0.2 by default-->
                 <img src="./resources/images/yngvar.jpg" alt="Yngvar R. Johansen">
+                <div class="light-filter">
+                  <!-- spotlight filter -->
+                </div>
               </div>
               <div class="contact-information">
                 <h2>Yngvar R. Johansen</h2>
@@ -241,6 +280,9 @@
               <div class="picture-container">
                 <!-- Opacity: 0.2 by default-->
                 <img src="./resources/images/kjetil.jpg" alt="Kjetil Waage">
+                <div class="light-filter">
+                  <!-- spotlight filter -->
+                </div>
               </div>
               <div class="contact-information">
                 <h2>Kjetil Waage</h2>
@@ -255,7 +297,7 @@
       </section>
       <!--**** ^End Contact / About Section****-->
 
-      <!--**** Notes Section****-->
+      <!--**** Notes Section ****-->
       <section id="notes-section">
         <h1>Notater</h1>
         <!--*** Note Container ***-->
@@ -289,6 +331,7 @@
 
       </section>
       <!--**** ^End Notes Section ****-->
+
     </main>
     <!--***** ^End Main *****-->
 
